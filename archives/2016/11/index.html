@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://liuwf2012.github.io">
-  <title>liuwf2012的博客</title>
+  <title>Archives: 2016/11 | liuwf2012的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="liuwf2012的博客">
-<meta property="og:url" content="http://liuwf2012.github.io/index.html">
+<meta property="og:url" content="http://liuwf2012.github.io/archives/2016/11/index.html">
 <meta property="og:site_name" content="liuwf2012的博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="liuwf2012的博客">
@@ -143,129 +143,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-write-my-js-sdk" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/write-my-js-sdk/">尝试自己编写一个js-sdk</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/05/write-my-js-sdk/" class="archive-article-date">
-  	<time datetime="2017-01-05T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-05</time>
-</a>
-        
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">nw</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/05/write-my-js-sdk/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-ng-avatar-directive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/23/ng-avatar-directive/">angular实现的userAvatar指令</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/23/ng-avatar-directive/" class="archive-article-date">
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/11/23/ng-avatar-directive/" class="archive-article-date">
   	<time datetime="2016-11-23T10:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-23</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>近来手头负责的项目进入收尾阶段，开始做系统测试，于是乎有时间整理下原来就觉得可以优化的点。<br>其中一个比较在意的，就是<strong>用户头像</strong>。</p>
-<h3 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h3><p>通常一个系统的默认头像是如何处理的呢？<br>基本就是准备一张默认图片，当用户未设置头像时，则全部显示默认图片，比如我们最常见的他<br><img src="/assets/blogImg/ng-avatar-directive/1.png" alt="default avatar"></p>
-<p>单看挺好，放在系统右上角显示用户头像也没什么，但一旦进入用户列表时，就有些不淡定了<br><img src="/assets/blogImg/ng-avatar-directive/2.png" alt="use list"></p>
-<p>感觉就像看完<a href="http://bangumi.bilibili.com/anime/3537" target="_blank" rel="external">《代号D机关》</a>，有种脸盲症的恐慌。<br>平时用一些其他saas产品时，经常会有些花花绿绿的默认头像，而且可以默认用<strong>用户名</strong>做头像，识别度高，体验相当不错。<br>比如下面这几个：<br><img src="/assets/blogImg/ng-avatar-directive/3.png" alt="other avatar1"><img src="/assets/blogImg/ng-avatar-directive/4.png" alt="other avatar2"></p>
-<p><strong>就决定是你了！</strong></p>
-<h3 id="需求整理"><a href="#需求整理" class="headerlink" title="需求整理"></a>需求整理</h3><p>由于项目前端使用AngularJs，所以最方便的就是编写一个directive来作为通用的<strong>用户头像组件</strong>。<br>先捋下这个userAvatar指令应该要有哪些东西：</p>
-<blockquote>
-<ul>
-<li>用户未设置头像，则截取用户名作为头像</li>
-<li>用户已设置头像，则直接显示用户头像</li>
-<li>默认头像应具备多种颜色</li>
-<li>头像提供多种尺寸</li>
-<li>提供头像点击的事件</li>
-<li>参数变化时，更新头像</li>
-</ul>
-</blockquote>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>先上完整代码（样式在css文件中）：<br><img src="/assets/blogImg/ng-avatar-directive/5.png" alt="js code"></p>
-<p>关于实现代码的几点说明：</p>
-<p><strong>1.头像的DOM节点</strong><br>头像节点分两种，有用户头像时直接将图片作为background显示，没有则在根节点下生成一个div用于显示用户名，由函数createAvatar生成（代码第50-66行）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//设置头像</div><div class="line">&lt;div class=&quot;user-avatar&quot; style=&quot;background-image:url(http://xxxx.png)&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">//为未设置头像</div><div class="line">&lt;div class=&quot;user-avatar&quot;&gt;</div><div class="line">    &lt;div class=&quot;avatar-text&quot;&gt;用户别名&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p><strong>2.用户别名</strong><br>由于头像是圆形，放两个文字显示效果最佳，故对用户名进行截取，获取用户别名（代码第43-49行）。<br>具体规则：<br>      1） 中文用户名就取后两位（既有中文，又有英文就按中文名计算）<br>      2） 英文用户名就取前两位</p>
-<p><strong>3.用户名头像的背景颜色</strong><br>最初的实现是使用random()在colors数组中获取随机颜色，但会导致<strong>同一个用户的头像颜色每次都不一样</strong>，显然不是很舒服。于是，改为使用<strong>用户别名</strong>的<strong>unicode码取模</strong>来计算颜色，这样同一个用户名每次计算出的背景色都一样（代码第37-42行）</p>
-<p><strong>4.头像点击事件</strong><br>大多数情况下，系统中的头像都能点击，呼出用户详情的弹窗，所以指令中的on-click-avatar属性用于提供事件回调</p>
-<p><strong>5.用户数据修改后的头像更新</strong><br>这可以分成两种情况：<br>1）指令绑定的数据被更新<br>2）指令同时在多个地方使用，并绑定了同一个用户数据的不同Model，其中一个Model被更新<br>举个例子来说明这两种情况：<br>现在有user1和user1_copy两个对象，他们数据一样，是同一个scope下的两个model<br>（测试代码）<br><img src="/assets/blogImg/ng-avatar-directive/6.png" alt="demo code"><br><img src="/assets/blogImg/ng-avatar-directive/7.png" alt="demo code"></p>
-<p>当点击第一个按钮，user1的数据会被更新，此时由于指令内部我们添加了$watch（代码第67-72行），所以user1的头像被更新了。这就是第一种情况。<br><img src="/assets/blogImg/ng-avatar-directive/8.png" alt="demo code"></p>
-<p>然而，对于user1_copy，他是检测不到user1的变化的，他就不会被更新，这就是上面说的第二种情况。对应到真实业务流程中常见的一种场景，用户在账户信息页修改头像，成功后账户信息页里的头像被刷新了，但是页面顶部栏里的用户登录头像应该也要同步刷新。为了满足这类场景，我们使用angular的消息机制<code>$broadcast</code>和<code>$on</code>，来实现user1更新时user1_copy也更新（代码第81-92行）。</p>
-<p><img src="/assets/blogImg/ng-avatar-directive/9.png" alt="demo code"><img src="/assets/blogImg/ng-avatar-directive/11.png" alt="demo code"></p>
-<p><strong>6.指令的使用</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;user-avatar uid=&quot;12121&quot; user-name=&quot;XXX&quot; avatar=&quot;http://a.jpg&quot; size=&quot;lg&quot; on-click-avatar=&quot;fn()&quot;&gt;&lt;/user-avatar&gt;</div></pre></td></tr></table></figure>
-<p><a href="https://github.com/liuwf2012/lwf-ng-ui-widget/tree/master/userAvatar" target="_blank" rel="external">源码</a></p>
-<h3 id="牢骚话"><a href="#牢骚话" class="headerlink" title="牢骚话"></a>牢骚话</h3><p>作为一个非全职前端（偶尔得写写java和C#），我始终觉得前端开发是个细致活。在后端同学看来头像就是开头那张灰溜溜的图片嘛，但作为前端同学，我们始终应该追求 better than better。</p>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/11/23/ng-avatar-directive/">angular实现的userAvatar指令</a>
+    </h1>
+  
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -277,29 +182,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/23/ng-avatar-directive/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-
-
-
-
-
   
   
+    </div></section>
+  
+
+    
 
 
           </div>
@@ -321,9 +216,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

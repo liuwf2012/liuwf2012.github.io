@@ -6,14 +6,38 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://liuwf2012.github.io">
-  <title>liuwf2012的博客</title>
+  <title>angular实现的userAvatar指令 | liuwf2012的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="liuwf2012的博客">
-<meta property="og:url" content="http://liuwf2012.github.io/index.html">
+  <meta name="description" content="近来手头负责的项目进入收尾阶段，开始做系统测试，于是乎有时间整理下原来就觉得可以优化的点。其中一个比较在意的，就是用户头像。
+吐槽通常一个系统的默认头像是如何处理的呢？基本就是准备一张默认图片，当用户未设置头像时，则全部显示默认图片，比如我们最常见的他
+单看挺好，放在系统右上角显示用户头像也没什么，但一旦进入用户列表时，就有些不淡定了
+感觉就像看完《代号D机关》，有种脸盲症的恐慌。平时用一些其他s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angular实现的userAvatar指令">
+<meta property="og:url" content="http://liuwf2012.github.io/2016/11/23/ng-avatar-directive/index.html">
 <meta property="og:site_name" content="liuwf2012的博客">
+<meta property="og:description" content="近来手头负责的项目进入收尾阶段，开始做系统测试，于是乎有时间整理下原来就觉得可以优化的点。其中一个比较在意的，就是用户头像。
+吐槽通常一个系统的默认头像是如何处理的呢？基本就是准备一张默认图片，当用户未设置头像时，则全部显示默认图片，比如我们最常见的他
+单看挺好，放在系统右上角显示用户头像也没什么，但一旦进入用户列表时，就有些不淡定了
+感觉就像看完《代号D机关》，有种脸盲症的恐慌。平时用一些其他s">
+<meta property="og:image" content="http://liuwf2012.github.io/assets/blogImg/ng-avatar-directive/1.png">
+<meta property="og:image" content="http://liuwf2012.github.io/assets/blogImg/ng-avatar-directive/2.png">
+<meta property="og:image" content="http://liuwf2012.github.io/assets/blogImg/ng-avatar-directive/3.png">
+<meta property="og:image" content="http://liuwf2012.github.io/assets/blogImg/ng-avatar-directive/4.png">
+<meta property="og:image" content="http://liuwf2012.github.io/assets/blogImg/ng-avatar-directive/5.png">
+<meta property="og:image" content="http://liuwf2012.github.io/assets/blogImg/ng-avatar-directive/6.png">
+<meta property="og:image" content="http://liuwf2012.github.io/assets/blogImg/ng-avatar-directive/7.png">
+<meta property="og:image" content="http://liuwf2012.github.io/assets/blogImg/ng-avatar-directive/8.png">
+<meta property="og:image" content="http://liuwf2012.github.io/assets/blogImg/ng-avatar-directive/9.png">
+<meta property="og:image" content="http://liuwf2012.github.io/assets/blogImg/ng-avatar-directive/11.png">
+<meta property="og:updated_time" content="2017-02-15T10:13:17.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="liuwf2012的博客">
+<meta name="twitter:title" content="angular实现的userAvatar指令">
+<meta name="twitter:description" content="近来手头负责的项目进入收尾阶段，开始做系统测试，于是乎有时间整理下原来就觉得可以优化的点。其中一个比较在意的，就是用户头像。
+吐槽通常一个系统的默认头像是如何处理的呢？基本就是准备一张默认图片，当用户未设置头像时，则全部显示默认图片，比如我们最常见的他
+单看挺好，放在系统右上角显示用户头像也没什么，但一旦进入用户列表时，就有些不淡定了
+感觉就像看完《代号D机关》，有种脸盲症的恐慌。平时用一些其他s">
+<meta name="twitter:image" content="http://liuwf2012.github.io/assets/blogImg/ng-avatar-directive/1.png">
   
     <link rel="alternative" href="/atom.xml" title="liuwf2012的博客" type="application/atom+xml">
   
@@ -141,81 +165,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-write-my-js-sdk" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-ng-avatar-directive" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/write-my-js-sdk/">尝试自己编写一个js-sdk</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/05/write-my-js-sdk/" class="archive-article-date">
-  	<time datetime="2017-01-05T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">nw</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/05/write-my-js-sdk/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-ng-avatar-directive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/23/ng-avatar-directive/">angular实现的userAvatar指令</a>
+    <h1 class="article-title" itemprop="name">
+      angular实现的userAvatar指令
     </h1>
   
 
@@ -280,10 +237,6 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/23/ng-avatar-directive/">展开全文 >></a>
-        </p>
-      
 
       
       <div class="clearfix"></div>
@@ -291,7 +244,20 @@
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+    <a href="/2017/01/05/write-my-js-sdk/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          尝试自己编写一个js-sdk
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
 
 
@@ -299,7 +265,28 @@
 
 
   
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ng-avatar-directive" data-title="angular实现的userAvatar指令" data-url="http://liuwf2012.github.io/2016/11/23/ng-avatar-directive/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"liuwf2012"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
+
+
 
 
           </div>
@@ -321,8 +308,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
